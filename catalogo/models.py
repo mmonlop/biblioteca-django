@@ -56,9 +56,10 @@ class Libro(models.Model):
 
 
     class Meta:
-        ordering = ["titulo"]
-        ordering = ["autores"]
+        ordering = ['titulo']
+        verbose_name = "Libro"
+        verbose_name_plural = "Libros"
 
 
     def __str__(self):
-        return super().__str__()
+        return self.titulo
