@@ -9,7 +9,7 @@ class Autor(models.Model):
     biografia = models.TextField(blank=True)
 
     def __str__(self):
-        return super().__str__()
+        return f"{self.nombre} {self.apellidos}"
 
 
 class Editorial(models.Model):
@@ -19,7 +19,7 @@ class Editorial(models.Model):
     activa = models.BooleanField(default=True)
 
     def __str__(self):
-        return super().__str__()
+        return self.nombre
 
 class Libro(models.Model):
 
@@ -53,7 +53,8 @@ class Libro(models.Model):
     paginas = models.PositiveBigIntegerField()
     precio = models.DecimalField(max_digits=8,decimal_places=2)
     disponible = models.BooleanField(default=True)
-
+    editorial = models.ForeignKey(Editorial, on_delete=models.PROTECT, related_name="libros",null=True, blank=True)
+    autores = models.ManyToManyField(Autor, related_name="libros",null=True,blank=True)
 
     class Meta:
         ordering = ['titulo']
