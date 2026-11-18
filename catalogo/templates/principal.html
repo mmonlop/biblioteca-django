@@ -1,16 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
+    <h3>Libros de una editorial: {{editorial.nombre}}</h3>
 
-    <p>Precio Medio: {{datos.precio_medio}}</p>
-    <p>Total precios: {{datos.total_catalogo}}</p>
+    {%for libro in libros%}
+    <p>{{libro.titulo}}</p>
+    {%endfor%}
+
+    <h3>Libros de Autor: {{autor.nombre}}</h3>
+
+    {%for libro in libros_autor%}
+    <p>{{libro.titulo}}</p>
+    {%endfor%}
+
+    <h3>Autores del libro: {{libro.titulo}}</h3>
+
+    {%for autor in autores_d_libro%}
+    <p>{{autor.nombre}}</p>
+    {%endfor%}
+
+    <h3>Total libros editorial {{editorial.nombre}}:</h3>
+    <p>{{total_libros.total}}</p>
+
+    <h3>Eliminar:</h3>
+    <p>
+      Cannot delete editorial Deleting the selected editorial would require
+      deleting the following protected related objects: Libro: Nuevo titulo
+      Libro: Django práctico Libro: Libro Uno
+    </p>
 
     
-
-</body>
+  </body>
 </html>
