@@ -6,31 +6,11 @@
     <title>Document</title>
   </head>
   <body>
-    <h3>Libros de una editorial: {{editorial.nombre}}</h3>
+    <h3>Libros : </h3>
 
     {%for libro in libros%}
     <p>{{libro.titulo}}</p>
     {%endfor%}
 
-    <h3>Libros de Autor: {{autor.nombre}}</h3>
-
-    {%for libro in libros_autor%}
-    <p>{{libro.titulo}}</p>
-    {%endfor%}
-
-    <h3>Autores del libro: {{libro.titulo}}</h3>
-
-    {%for autor in autores_d_libro%}
-    <p>{{autor.nombre}}</p>
-    {%endfor%}
-
-    <h3>Total libros editorial {{editorial.nombre}}:</h3>
-    <p>{{total_libros.total}}</p>
-
-    <h3>Eliminar:</h3>
-    <p>
-    </p>
-
-    
   </body>
 </html>

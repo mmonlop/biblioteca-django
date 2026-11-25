@@ -26,38 +26,35 @@ def principal(request):
 
 
     #Recupera todos los libros de una editorial.
-    editorial = Editorial.objects.first()
+    # editorial = Editorial.objects.first()
 
-    libros = editorial.libros.all()
+    # libros = editorial.libros.all()
 
 
     
     #Recupera todos los libros de un autor.
 
-    autor = Autor.objects.first()
+    # autor = Autor.objects.first()
 
-    libros_autor = autor.libros.all()
+    # libros_autor = autor.libros.all()
 
     #Recupera todos los autores de un libro.
 
-    autor_libro = Libro.objects.first()
+    # autor_libro = Libro.objects.first()
 
-    autores_de_libro = autor_libro.autores.all()
+    # autores_de_libro = autor_libro.autores.all()
 
 
     #Muestra el número de libros por editorial mediante annotate()
 
-    total_libros_editorial = Editorial.objects.filter(pk=editorial.pk).annotate(
-        total=Count("libros")
-    )
+    # total_libros_editorial = Editorial.objects.filter(pk=editorial.pk).annotate(
+    #     total=Count("libros")
+    # )
+
+    libros = Libro.objects.all()
 
 
-    # Recupera los libros desde una editorial y desde un autor utilizando related_name
-
-
-
-    return render(request, 'principal.html', {'libros':libros, 'libros_autor':libros_autor, 'editorial': editorial, 'autor':autor, 'autores_d_libro':autores_de_libro,
-                                              'libro':autor_libro, 'total_libros':total_libros_editorial})
+    return render(request, 'principal.html', {'libros':libros, })
 
 
 
