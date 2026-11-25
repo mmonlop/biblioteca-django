@@ -92,6 +92,10 @@ class Prestamo(models.Model):
 
 class Usuario(models.Model):
     nombre = models.CharField(max_length=100)
-
+ 
     def __str__(self):
         return self.nombre
+
+class Perfil(models.Model):
+    usuario = models.OneToOneField(Usuario, on_delete=models.PROTECT, related_name="perfil")
+    fecha_creacion = models.DateField()
